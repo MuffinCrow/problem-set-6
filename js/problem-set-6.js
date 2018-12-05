@@ -11,7 +11,10 @@
  */
 
 function sayHello() {
-
+  const canvas = document.getElementById('canvas1');
+  const ctx = canvas.getContext('2d');
+  ctx.font = '48px sans-serif';
+  ctx.strokeText('Hello, World!', 10, 50);
 }
 
 /*
@@ -38,9 +41,57 @@ function sayHello() {
  */
 
 function drawRectangle() {
+  let height;
+  let width;
+  let y;
+  let x;
+  let invalid = 0;
+  height = Number(prompt("Height:"));
+  width = Number(prompt("Width:"));
+  x = Number(prompt("X:"));
+  y = Number(prompt("Y:"));
+  if (width < 1) {
+    invalid = 0;
+  }else if (height < 1) {
+    invalid = 1;
+  }else if (x < 5) {
+    invalid = 2;
+  }else if (y < 5) {
+    invalid = 3;
+  }else if (((x + width) > 1024) || ((y + height) > 512)) {
+    invalid = 4;
+  }else if (isNaN(x || y || width || height)) {
+    invalid = 5;
+  }else {
+    invalid = 6;
+  }
+
+  switch (invalid) {
+    case 0:
+      alert("Your width is too small.");
+      break;
+    case 1:
+      alert("Your height is too small.");
+      break;
+    case 2:
+      alert("Your x-coordinate is too small.");
+      break;
+    case 3:
+      alert("Your y-coordinate is too small.");
+      break;
+    case 4:
+      alert("The rectangle will not fit on the canvas.");
+      break;
+    case 5:
+      alert("One of your inputs is not a number.")
+      break;
+    case 6:
+      const canvas = document.getElementById('canvas2');
+      const ctx = canvas.getContext('2d');
+      ctx.strokeRect(x, y, width, height);
+  }
 
 }
-
 /*
  * Color. 3 points.
  *
