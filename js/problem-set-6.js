@@ -118,6 +118,70 @@ function drawRectangle() {
  */
 
 function drawColoredRectangle() {
+  const canvas = document.getElementById('canvas3');
+  const ctx = canvas.getContext('2d');
+  let color = prompt("Color:");
+  switch (color) {
+    case 'black':
+      ctx.fillStyle = 'black';
+      ctx.fillRect(10, 10, 100, 50);
+      break;
+    case 'Black':
+      ctx.fillStyle = 'black';
+      ctx.fillRect(10, 10, 100, 50);
+      break;
+    case 'blue':
+      ctx.fillStyle = 'blue';
+      ctx.fillRect(10, 10, 100, 50);
+      break;
+    case 'Blue':
+      ctx.fillStyle = 'blue';
+      ctx.fillRect(10, 10, 100, 50);
+      break;
+    case 'green':
+      ctx.fillStyle = 'green';
+      ctx.fillRect(10, 10, 100, 50);
+      break;
+    case 'Green':
+      ctx.fillStyle = 'green';
+      ctx.fillRect(10, 10, 100, 50);
+      break;
+    case 'orange':
+      ctx.fillStyle = 'orange';
+      ctx.fillRect(10, 10, 100, 50);
+      break;
+    case 'Orange':
+      ctx.fillStyle = 'orange';
+      ctx.fillRect(10, 10, 100, 50);
+      break;
+    case 'purple':
+      ctx.fillStyle = 'purple';
+      ctx.fillRect(10, 10, 100, 50);
+      break;
+    case 'Purple':
+      ctx.fillStyle = 'purple';
+      ctx.fillRect(10, 10, 100, 50);
+      break;
+    case 'red':
+      ctx.fillStyle = 'red';
+      ctx.fillRect(10, 10, 100, 50);
+      break;
+    case 'Red':
+      ctx.fillStyle = 'red';
+      ctx.fillRect(10, 10, 100, 50);
+      break;
+    case 'Yellow':
+      ctx.fillStyle = 'yellow';
+      ctx.fillRect(10, 10, 100, 50);
+      break;
+    case 'yellow':
+      ctx.fillStyle = 'yellow';
+      ctx.fillRect(10, 10, 100, 50);
+      break;
+    default:
+      alert("The color entered is an unsupported color.")
+      break;
+  }
 
 }
 
@@ -151,7 +215,42 @@ function drawColoredRectangle() {
  */
 
 function drawTriangle() {
-
+  const canvas = document.getElementById('canvas4');
+  const ctx = canvas.getContext('2d');
+  let s1 = Number(prompt("Side 1:"));
+  let s2 = Number(prompt("Side 2:"));
+  let s3 = Number(prompt("Side 3:"));
+  console.log(s1);
+  console.log(s2);
+  console.log(s3);
+  if (isNaN(s1)) {
+    alert("One of your inputs is not a number.");
+  }else if (isNaN(s2)) {
+    alert("One of your inputs is not a number.");
+  }else if (isNaN(s3)) {
+    alert("One of your inputs is not a number.");
+  }else if (Number.isInteger(s1) == false) {
+    alert("That is not a valid right triangle.");
+  }else if (Number.isInteger(s2) == false) {
+    alert("That is not a valid right triangle.");
+  }else if (Number.isInteger(s3) == false) {
+    alert("That is not a valid right triangle.");
+  }else if (s1 > 502 || s1 <= 0 || s1 > s2 || s1 > s3) {
+    alert("That is not a valid right triangle.");
+  }else if (s2 > 1014 || s2 < s1 || s2 > s3) {
+    alert("That is not a valid right triangle.");
+  }else if ((s1 * s1) + (s2 * s2) != (s3 * s3)) {
+    alert("That is not a valid right triangle.");
+  }else if ((s1 * s1) + (s2 * s2) == (s3 * s3)) {
+    ctx.beginPath();
+    ctx.moveTo(10, 10);
+    ctx.lineTo(10, (s1 + 10));
+    ctx.lineTo((s2 + 10), (s1 + 10));
+    ctx.closePath();
+    ctx.stroke();
+  }else{
+    alert("That is not a valid right triangle.");
+  }
 }
 
 /*
