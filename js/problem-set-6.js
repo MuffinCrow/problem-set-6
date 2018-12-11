@@ -273,7 +273,47 @@ function drawTriangle() {
  */
 
 function drawSmileyFace() {
+  const canvas = document.getElementById('canvas5');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+       let radii = Number(prompt("Radius:"));
+       if (radii >= 251) {
+         alert("The smiley face will not fit on the canvas.");
+       } else if (radii <= 0) {
+         alert ("Your radius is too small.");
+       } else if (isNaN(radii)) {
+         alert("Your input is not a number.");
+       } else {
+         let condition = (radii / 100);
+         let opposite = (radii * 2 + 10);
+         let third = (radii * 2 / 3 + 10);
+         let second = (radii * 2 / 3 * 2 + 10);
+               ctx.beginPath();
+               ctx.arc((radii + 10), (radii + 10), radii, 0, Math.PI * 2, true); // Outer circle
+               ctx.stroke();
+               ctx.closePath();
 
+               ctx.moveTo(opposite, (radii + 10));
+
+               ctx.beginPath();
+               ctx.arc((radii + 10), (radii + 10), (radii * 0.7), 0, Math.PI, false);  // Mouth (clockwise)
+               ctx.stroke();
+               ctx.closePath();
+
+               ctx.moveTo(third, radii);
+
+               ctx.beginPath();
+               ctx.arc(third, (radii * 0.7 + 10), (radii * 0.1), 0, Math.PI * 2, true);
+               ctx.stroke();
+               ctx.closePath();
+
+               ctx.moveTo(second, radii);
+
+               ctx.beginPath();
+               ctx.arc(second, (radii * 0.7 + 10), (radii * 0.1), 0, Math.PI * 2, true);
+               ctx.stroke();
+               ctx.closePath();
+       }
 }
 
 /*
