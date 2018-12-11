@@ -338,6 +338,8 @@ function drawStar() {
 
 }
 
+
+//https://math.stackexchange.com/questions/2135982/math-behind-creating-a-perfect-star
 /*
  * Stop Sign. 7 points.
  *
