@@ -483,5 +483,31 @@ function drawPyramid() {
  */
 
 function drawHouse() {
+  const canvas = document.getElementById('canvas9');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.lineWidth = 2;
+
+
+  ctx.beginPath();
+  ctx.moveTo(512, 10);
+  ctx.lineTo(150, 260);
+  ctx.lineTo(850, 260);
+  ctx.lineTo(512, 10);
+  ctx.stroke();
+  ctx.fillStyle = "gray";
+  ctx.fill();
+  ctx.closePath();
+
+  ctx.beginPath();
+  ctx.fillStlye = "#FF0000";
+  ctx.moveTo(150, 260);
+  ctx.lineTo(150, 750);
+  ctx.lineTo(850, 750);
+  ctx.lineTo(850, 260);
+  ctx.lineTo(150, 260);
+  ctx.stroke();
+  ctx.fill();
+  ctx.closePath();
 
 }
