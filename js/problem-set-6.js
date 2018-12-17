@@ -335,7 +335,28 @@ function drawSmileyFace() {
  */
 
 function drawStar() {
+  const canvas = document.getElementById('canvas6');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  let outer = Math.floor(Number(prompt("Outer Radius:")));
+  let inner = Math.floor(Number(prompt("Inner Radius:")));
+  if (isNaN(outer) || isNaN(inner)) {
+    alert("One of your inputs is not a number.");
+  } else if (outer <= inner) {
+    alert("Your outer radius must be larger than your inner radius.");
+  } else {
+    ctx.moveTo(125, 125 - outer);
+    let x = 1.5;
 
+    for (let i = 0 ; i < 5; i++) {
+      x += 0.2;
+      ctx.lineTo((inner * Math.cos(x * Math.PI)) + 125, (inner * Math.sin(x * Math.PI)) + 125);
+      x += 0.2;
+      ctx.lineTo((outer * Math.cos(x * Math.PI)) + 125, (outer * Math.sin(x * Math.PI)) + 125);
+    }
+
+    ctx.stroke();
+  }
 }
 
 
@@ -356,9 +377,28 @@ function drawStar() {
  */
 
 function drawStopSign() {
+  const canvas = document.getElementById('canvas7');
+  const ctx = canvas.getContext('2d');
+  ctx.beginPath();
+  ctx.moveTo(67, 10);
+  ctx.lineTo(147, 10);
+  ctx.lineTo(204, 67);
+  ctx.lineTo(204, 147);
+  ctx.lineTo(147, 204);
+  ctx.lineTo(67, 204);
+  ctx.lineTo(10, 147);
+  ctx.lineTo(10, 67);
+  ctx.lineTo(67, 10);
+  ctx.stroke();
+  ctx.fillStyle = "#FF0000";
+  ctx.fill();
+  ctx.closePath();
 
+  ctx.font = "65px Arial";
+  ctx.fillStyle = "white";
+  ctx.textAlign = "center";
+  ctx.fillText("STOP", 107, 127);
 }
-
 /*
  * Pyramid. 7 points.
  *
@@ -378,7 +418,39 @@ function drawStopSign() {
  */
 
 function drawPyramid() {
+  const canvas = document.getElementById('canvas8');
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  let input = Math.floor(Number(prompt("Length:")));
+  if (input > 100) {
+    alert("The pyramid will not fit on the canvas.");
+  } else if (isNaN(input)) {
+    alert("Your input is not a number.");
+  }else{
 
+  let half = (input / 2);
+
+  ctx.strokeRect(10, (502 - input), input, input);
+  ctx.strokeRect((10 + input), (502 - input), input, input);
+  ctx.strokeRect((10 + (input * 2)), (502 - input), input, input);
+  ctx.strokeRect((10 + (input * 3)), (502 - input), input, input);
+  ctx.strokeRect((10 + (input * 4)), (502 - input), input, input);
+
+  ctx.strokeRect((10 + half), (502 - (input * 2)), input, input);
+  ctx.strokeRect((10 + (half * 3)), (502 - (input * 2)), input, input);
+  ctx.strokeRect((10 + (half * 5)), (502 - (input * 2)), input, input);
+  ctx.strokeRect((10 + (half * 7)), (502 - (input * 2)), input, input);
+
+  ctx.strokeRect((10 + input), (502 - (input * 3)), input, input);
+  ctx.strokeRect((10 + (input * 2)), (502 - (input * 3)), input, input);
+  ctx.strokeRect((10 + (input * 3)), (502 - (input * 3)), input, input);
+
+  ctx.strokeRect((10 + (half * 3)), (502 - (input * 4)), input, input);
+  ctx.strokeRect((10 + (half * 5)), (502 - (input * 4)), input, input);
+
+  ctx.strokeRect((10 + (input * 2)), (502 - (input * 5)), input, input);
+
+}
 }
 
 /*
