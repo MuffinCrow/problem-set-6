@@ -490,17 +490,17 @@ function drawHouse() {
 
 
   ctx.beginPath();
+  ctx.fillStyle = "gray";
   ctx.moveTo(512, 10);
   ctx.lineTo(150, 260);
   ctx.lineTo(850, 260);
   ctx.lineTo(512, 10);
   ctx.stroke();
-  ctx.fillStyle = "gray";
   ctx.fill();
   ctx.closePath();
 
   ctx.beginPath();
-  ctx.fillStlye = "#FF0000";
+  ctx.fillStyle = "red";
   ctx.moveTo(150, 260);
   ctx.lineTo(150, 750);
   ctx.lineTo(850, 750);
@@ -509,5 +509,22 @@ function drawHouse() {
   ctx.stroke();
   ctx.fill();
   ctx.closePath();
+
+
+  ctx.fillStyle = "#ADD8E6";
+  ctx.strokeRect(250, 360, 75, 75);
+  ctx.fillRect(250, 360, 75, 75);
+
+  ctx.fillStyle = "#ADD8E6";
+  ctx.strokeRect(675, 360, 75, 75);
+  ctx.fillRect(675, 360, 75, 75);
+
+  ctx.fillStyle = "#ADD8E6";
+  ctx.strokeRect(250, 625, 75, 75);
+  ctx.fillRect(250, 625, 75, 75);
+
+  ctx.fillStyle = "#ADD8E6";
+  ctx.strokeRect(675, 625, 75, 75);
+  ctx.fillRect(675, 625, 75, 75);
 
 }
