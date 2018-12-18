@@ -488,7 +488,14 @@ function drawHouse() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
   ctx.lineWidth = 2;
 
+  let colorH = prompt("House Color:");
+  let colorD = prompt("Front Door Color:");
 
+if (colorH != "blue" && colorH != "brown" && colorH != "green" && colorH != "orange" && colorH != "purple" && colorH != "red" && colorH != "yellow") {
+  alert("One of your colors is not supported.");
+} else if (colorD != "blue" && colorD != "brown" && colorD != "green" && colorD != "orange" && colorD != "purple" && colorD != "red" && colorD != "yellow") {
+  alert("One of your colors is not supported.");
+}else{
   ctx.beginPath();
   ctx.fillStyle = "gray";
   ctx.moveTo(512, 10);
@@ -500,7 +507,7 @@ function drawHouse() {
   ctx.closePath();
 
   ctx.beginPath();
-  ctx.fillStyle = "red";
+  ctx.fillStyle = `${colorH}`;
   ctx.moveTo(150, 260);
   ctx.lineTo(150, 750);
   ctx.lineTo(850, 750);
@@ -527,4 +534,16 @@ function drawHouse() {
   ctx.strokeRect(675, 625, 75, 75);
   ctx.fillRect(675, 625, 75, 75);
 
+  ctx.fillStyle = `${colorD}`;
+  ctx.strokeRect(450, 600, 100, 150);
+  ctx.fillRect(450, 600, 100, 150);
+
+  ctx.beginPath();
+  ctx.moveTo(535, 675);
+  ctx.fillStyle = "orange";
+  ctx.arc(535, 675, 6, 0, (Math.PI * 2), false);
+  ctx.stroke();
+  ctx.fill();
+  ctx.closePath();
+}
 }
